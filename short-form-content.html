@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Short-Form Content Services | EmailEdge Agency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Використовуємо ті самі CSS змінні та базові стилі */
+    :root {
+      --primary: #ff8c00;
+      --secondary: #ff4500;
+      --dark: #0a0a0a;
+      --darker: #050505;
+      --gray: #1a1a1a;
+      --light: #f0f0f0;
+      --lighter: #ffffff;
+      --transition: all 0.3s ease;
+      --shadow: 0 4px 20px rgba(0,0,0,0.25);
+      --radius: 12px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--darker);
+      color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    a:hover {
+      color: var(--lighter);
+      text-decoration: underline;
+    }
+    
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(255, 140, 0, 0.4);
+      text-decoration: none;
+    }
+    
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 4rem 2rem 6rem;
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
+    
+    .header-content {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    /* Service Showcase */
+    .service-hero {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      margin: 5rem 0;
+    }
+    
+    .service-content {
+      flex: 1;
+    }
+    
+    .service-visual {
+      flex: 1;
+      position: relative;
+    }
+    
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .platform-card {
+      background: var(--gray);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid #333;
+    }
+    
+    .platform-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+    }
+    
+    .platform-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .process-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .step-card {
+      flex: 1;
+      min-width: 250px;
+      background: var(--gray);
+      border-radius: var(--radius);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .step-number {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 5rem;
+      font-weight: 800;
+      color: rgba(255, 140, 0, 0.1);
+      line-height: 1;
+    }
+    
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+    
+    .result-card {
+      background: rgba(255, 140, 0, 0.1);
+      border-left: 4px solid var(--primary);
+      padding: 1.5rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    
+    .video-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+    
+    .video-card {
+      background: var(--gray);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    
+    .video-placeholder {
+      height: 200px;
+      background: linear-gradient(45deg, #ff8c00, #ff4500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+    }
+    
+    .video-info {
+      padding: 1.5rem;
+    }
+    
+    /* FAQ Section */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      background: var(--gray);
+      border-radius: var(--radius);
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      padding: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .faq-answer p {
+      padding: 1.5rem 0;
+      margin: 0;
+      color: #aaa;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      padding: 4rem 2rem;
+      text-align: center;
+      border-radius: var(--radius);
+      color: white;
+      margin: 4rem 0;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .service-hero {
+        flex-direction: column;
+      }
+      
+      .platform-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      
+      .platform-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      header {
+        padding: 3rem 1.5rem 5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Short-Form Content Production</h1>
+      <p>Scroll-stopping video content for TikTok, Instagram Reels, and YouTube Shorts</p>
+      <a href="#contact" class="btn">Get Content Strategy <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="service-overview">
+      <div class="service-hero">
+        <div class="service-content">
+          <h2>Transform Your Social Media Presence</h2>
+          <p>In today's attention economy, short-form video is the most powerful tool for building brand awareness, engaging audiences, and driving conversions. Our team specializes in creating thumb-stopping content tailored for each platform's algorithm and audience.</p>
+          
+          <div class="platform-grid">
+            <div class="platform-card">
+              <div class="platform-icon">
+                <i class="fab fa-tiktok"></i>
+              </div>
+              <h3>TikTok</h3>
+              <p>Trend-driven content that capitalizes on viral challenges</p>
+            </div>
+            
+            <div class="platform-card">
+              <div class="platform-icon">
+                <i class="fab fa-instagram"></i>
+              </div>
+              <h3>Instagram Reels</h3>
+              <p>Brand-aligned content optimized for discovery</p>
+            </div>
+            
+            <div class="platform-card">
+              <div class="platform-icon">
+                <i class="fab fa-youtube"></i>
+              </div>
+              <h3>YouTube Shorts</h3>
+              <p>Value-packed content driving subscriptions</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="service-visual">
+          <div style="background: var(--gray); border-radius: var(--radius); padding: 2rem; text-align: center;">
+            <div style="font-size: 5rem; color: var(--primary); margin-bottom: 1rem;">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Proven Results</h3>
+            <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem;">
+              <div>
+                <div style="font-size: 2rem; font-weight: 800; color: var(--primary);">+300%</div>
+                <div>Engagement Rate</div>
+              </div>
+              <div>
+                <div style="font-size: 2rem; font-weight: 800; color: var(--primary);">-40%</div>
+                <div>Cost Per View</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="our-process">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">Our Content Creation Process</h2>
+      
+      <div class="process-steps">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Strategy & Research</h3>
+          <p>We analyze your audience, competitors, and platform trends to develop a content strategy that aligns with your business goals.</p>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>Audience persona development</li>
+            <li>Competitor content analysis</li>
+            <li>Trend identification</li>
+            <li>Content pillar strategy</li>
+          </ul>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Creative Development</h3>
+          <p>Our creative team develops scroll-stopping concepts, scripts, and storyboards tailored to each platform's best practices.</p>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>Concept ideation</li>
+            <li>Scriptwriting</li>
+            <li>Storyboarding</li>
+            <li>Hook development</li>
+          </ul>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Production & Editing</h3>
+          <p>We film and edit using platform-specific techniques to maximize retention and engagement.</p>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>Vertical video production</li>
+            <li>Dynamic editing</li>
+            <li>Motion graphics</li>
+            <li>Sound design</li>
+          </ul>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Optimization & Distribution</h3>
+          <p>We optimize each video for discovery and manage distribution across platforms.</p>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>Hashtag strategy</li>
+            <li>Caption optimization</li>
+            <li>Posting schedule</li>
+            <li>Performance tracking</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="results">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">Measurable Results</h2>
+      
+      <div class="results-grid">
+        <div class="result-card">
+          <h3>For SaaS Analytics Platform</h3>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>+420% engagement rate on TikTok</li>
+            <li>2.3M impressions in 30 days</li>
+            <li>37% decrease in cost per lead</li>
+          </ul>
+        </div>
+        
+        <div class="result-card">
+          <h3>For FinTech Startup</h3>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>1.2M views on YouTube Shorts</li>
+            <li>28,000 new subscribers</li>
+            <li>15% conversion to free trial</li>
+          </ul>
+        </div>
+        
+        <div class="result-card">
+          <h3>For E-commerce Tool</h3>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>Viral Reel with 4.7M views</li>
+            <li>12,000+ link clicks</li>
+            <li>$84,000 in attributed revenue</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="showcase">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">Content Showcase</h2>
+      
+      <div class="video-showcase">
+        <div class="video-card">
+          <div class="video-placeholder">
+            <i class="fas fa-play-circle"></i>
+          </div>
+          <div class="video-info">
+            <h3>Product Feature Highlight</h3>
+            <p>348K views • 27% engagement rate</p>
+            <p>Showcased key SaaS feature in 22 seconds</p>
+          </div>
+        </div>
+        
+        <div class="video-card">
+          <div class="video-placeholder">
+            <i class="fas fa-play-circle"></i>
+          </div>
+          <div class="video-info">
+            <h3>Customer Success Story</h3>
+            <p>1.2M views • 42% engagement rate</p>
+            <p>Authentic UGC-style testimonial</p>
+          </div>
+        </div>
+        
+        <div class="video-card">
+          <div class="video-placeholder">
+            <i class="fas fa-play-circle"></i>
+          </div>
+          <div class="video-info">
+            <h3>Problem/Solution Format</h3>
+            <p>890K views • 34% engagement rate</p>
+            <p>Positioned as industry thought leader</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">FAQ</h2>
+      
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            How many videos do we get per month?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Our packages start at 8 videos per month and scale up based on your needs. We recommend starting with 12-15 videos monthly for optimal platform algorithm performance.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            Do we need to provide scripts?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>No, our team handles everything from concept to final delivery. We develop scripts based on your product features, customer pain points, and current trends.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            How long does it take to see results?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Most clients see significant engagement within 30 days. Algorithm traction typically builds after 6-8 weeks of consistent posting.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            What's included in your packages?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>All packages include:
+              <ul>
+                <li>Content strategy development</li>
+                <li>Scriptwriting & storyboarding</li>
+                <li>Professional video production</li>
+                <li>Platform-specific optimization</li>
+                <li>Performance analytics reports</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>Ready to Dominate Short-Form Video?</h2>
+      <p>Schedule a free content audit and strategy session with our team</p>
+      <a href="mailto:video@emailedge.agency" class="btn">
+        <i class="fas fa-video"></i> Get Started
+      </a>
+    </section>
+  </main>
+
+  <footer style="background: var(--dark); padding: 3rem 0; text-align: center; margin-top: 4rem;">
+    <div class="container">
+      <h3>EmailEdge Agency</h3>
+      <p>Scaling SaaS brands through strategic content</p>
+      <p style="margin-top: 1.5rem; color: #777;">
+        © 2025 EmailEdge Agency · 
+        <a href="mailto:info@emailedge.agency">info@emailedge.agency</a> · 
+        <a href="index.html">Back to Home</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const isActive = question.classList.contains('active');
+        
+        // Close all open items
+        document.querySelectorAll('.faq-question').forEach(q => {
+          q.classList.remove('active');
+          q.nextElementSibling.style.maxHeight = null;
+        });
+        
+        // Open clicked item if it was closed
+        if (!isActive) {
+          question.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+    
+    // Initialize first FAQ as open
+    document.querySelector('.faq-question').click();
+  </script>
+</body>
+</html>
