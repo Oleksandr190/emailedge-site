@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page Audits | EmailEdge Agency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #ff8c00;
+      --secondary: #ff4500;
+      --dark: #0a0a0a;
+      --darker: #050505;
+      --gray: #1a1a1a;
+      --light: #f0f0f0;
+      --lighter: #ffffff;
+      --transition: all 0.3s ease;
+      --shadow: 0 4px 20px rgba(0,0,0,0.25);
+      --radius: 12px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--darker);
+      color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    a:hover {
+      color: var(--lighter);
+      text-decoration: underline;
+    }
+    
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(255, 140, 0, 0.4);
+      text-decoration: none;
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 4rem 2rem 6rem;
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
+    
+    .header-content {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    /* Service Sections */
+    .service-hero {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      margin: 5rem 0;
+    }
+    
+    .service-content {
+      flex: 1;
+    }
+    
+    .service-visual {
+      flex: 1;
+      position: relative;
+    }
+    
+    .audit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+    
+    .audit-card {
+      background: var(--gray);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid #333;
+    }
+    
+    .audit-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+    }
+    
+    .audit-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .process-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .step-card {
+      flex: 1;
+      min-width: 250px;
+      background: var(--gray);
+      border-radius: var(--radius);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .step-number {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 5rem;
+      font-weight: 800;
+      color: rgba(255, 140, 0, 0.1);
+      line-height: 1;
+    }
+    
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+    
+    .result-card {
+      background: rgba(255, 140, 0, 0.1);
+      border-left: 4px solid var(--primary);
+      padding: 1.5rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    
+    .comparison {
+      display: flex;
+      gap: 2rem;
+      margin: 4rem 0;
+      background: var(--gray);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    
+    .comparison-col {
+      flex: 1;
+      padding: 2rem;
+    }
+    
+    .comparison-col.before {
+      border-right: 1px solid #333;
+    }
+    
+    .comparison-col h3 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+    
+    .issue-list {
+      list-style: none;
+    }
+    
+    .issue-list li {
+      padding: 0.8rem 0;
+      border-bottom: 1px dashed #333;
+      display: flex;
+      align-items: center;
+    }
+    
+    .issue-list li:before {
+      content: "•";
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-right: 0.8rem;
+    }
+    
+    .metric-showcase {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin: 4rem 0;
+    }
+    
+    .metric-card {
+      text-align: center;
+      background: rgba(255, 140, 0, 0.1);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+    
+    .metric-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 140, 0, 0.2);
+    }
+    
+    .metric-value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    /* FAQ Section */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      background: var(--gray);
+      border-radius: var(--radius);
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      padding: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .faq-answer p {
+      padding: 1.5rem 0;
+      margin: 0;
+      color: #aaa;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      padding: 4rem 2rem;
+      text-align: center;
+      border-radius: var(--radius);
+      color: white;
+      margin: 4rem 0;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .service-hero {
+        flex-direction: column;
+      }
+      
+      .audit-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .comparison {
+        flex-direction: column;
+      }
+      
+      .comparison-col.before {
+        border-right: none;
+        border-bottom: 1px solid #333;
+      }
+      
+      .metric-showcase {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      
+      .audit-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      header {
+        padding: 3rem 1.5rem 5rem;
+      }
+      
+      .metric-showcase {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Landing Page Audits</h1>
+      <p>Convert more visitors into customers with data-driven optimization</p>
+      <a href="#contact" class="btn">Get Free Audit Sample <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="service-overview">
+      <div class="service-hero">
+        <div class="service-content">
+          <h2>Transform Your Landing Pages into Conversion Machines</h2>
+          <p>Most SaaS landing pages convert at less than 5%. Our audits identify friction points and opportunities to increase conversions by 200% or more through data-driven optimization.</p>
+          
+          <div class="audit-grid">
+            <div class="audit-card">
+              <div class="audit-icon">
+                <i class="fas fa-search"></i>
+              </div>
+              <h3>Comprehensive Analysis</h3>
+              <p>We examine 47+ conversion factors across design, copy, UX, and technical performance</p>
+            </div>
+            
+            <div class="audit-card">
+              <div class="audit-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <h3>Data-Driven Insights</h3>
+              <p>Heatmaps, scroll maps, and session recordings reveal how visitors actually interact</p>
+            </div>
+            
+            <div class="audit-card">
+              <div class="audit-icon">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <h3>Actionable Recommendations</h3>
+              <p>Prioritized roadmap with specific fixes to implement immediately</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="service-visual">
+          <div style="background: var(--gray); border-radius: var(--radius); padding: 2rem; text-align: center;">
+            <div style="font-size: 5rem; color: var(--primary); margin-bottom: 1rem;">
+              <i class="fas fa-chart-bar"></i>
+            </div>
+            <h3>Average Results</h3>
+            <div style="margin-top: 1.5rem; text-align: left;">
+              <p><i class="fas fa-arrow-up" style="color: var(--primary);"></i> <strong>142%</strong> average conversion increase</p>
+              <p><i class="fas fa-arrow-down" style="color: #4CAF50;"></i> <strong>38%</strong> lower cost per acquisition</p>
+              <p><i class="fas fa-clock" style="color: var(--primary);"></i> <strong>72 hours</strong> average turnaround</p>
+              <p><i class="fas fa-dollar-sign" style="color: var(--primary);"></i> <strong>27:1</strong> average ROI</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="our-process">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">Our 5-Step Audit Process</h2>
+      
+      <div class="process-steps">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Goal Alignment</h3>
+          <p>We start by understanding your conversion goals, target audience, and key performance indicators.</p>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>Conversion goal definition</li>
+            <li>Target audience analysis</li>
+            <li>Competitor benchmarking</li>
+          </ul>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Technical Analysis</h3>
+          <p>We evaluate page speed, mobile responsiveness, SEO factors, and tracking implementation.</p>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>Page speed assessment</li>
+            <li>Mobile responsiveness check</li>
+            <li>SEO health audit</li>
+          </ul>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>UX & Design Review</h3>
+          <p>We analyze visual hierarchy, information flow, and user experience friction points.</p>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>Visual hierarchy evaluation</li>
+            <li>User flow mapping</li>
+            <li>Accessibility check</li>
+          </ul>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Copy & Messaging</h3>
+          <p>We assess headline effectiveness, value proposition clarity, and persuasive elements.</p>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>Headline effectiveness</li>
+            <li>Value proposition clarity</li>
+            <li>Persuasion elements review</li>
+          </ul>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">5</div>
+          <h3>Behavioral Analysis</h3>
+          <p>We study how real users interact with your page through heatmaps and session recordings.</p>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>Heatmap analysis</li>
+            <li>Session recordings</li>
+            <li>Conversion funnel analysis</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="results">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">Proven Results</h2>
+      
+      <div class="results-grid">
+        <div class="result-card">
+          <h3>For CRM Platform</h3>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>217% increase in demo requests</li>
+            <li>Reduced bounce rate by 58%</li>
+            <li>38% lower cost per lead</li>
+          </ul>
+        </div>
+        
+        <div class="result-card">
+          <h3>For FinTech Startup</h3>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>189% more free trial signups</li>
+            <li>22% higher conversion rate</li>
+            <li>3.2x ROI in first month</li>
+          </ul>
+        </div>
+        
+        <div class="result-card">
+          <h3>For E-commerce Tool</h3>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>142% increase in paid conversions</li>
+            <li>Reduced load time by 2.8 seconds</li>
+            <li>47% more engagement</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="comparison">
+        <div class="comparison-col before">
+          <h3>Before Audit</h3>
+          <ul class="issue-list">
+            <li>Unclear value proposition</li>
+            <li>Slow page load speed (4.2s)</li>
+            <li>Weak call-to-action</li>
+            <li>Mobile usability issues</li>
+            <li>High form abandonment</li>
+            <li>Confusing navigation</li>
+          </ul>
+        </div>
+        <div class="comparison-col">
+          <h3>After Optimization</h3>
+          <ul class="issue-list">
+            <li>Clear value-focused headline</li>
+            <li>Fast loading (1.3s)</li>
+            <li>Strong, benefit-driven CTA</li>
+            <li>Mobile-first responsive design</li>
+            <li>Simplified conversion form</li>
+            <li>Streamlined user journey</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="metrics">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">What We Measure</h2>
+      
+      <div class="metric-showcase">
+        <div class="metric-card">
+          <div class="metric-value">2.5s</div>
+          <p>Target Load Time</p>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">3.2x</div>
+          <p>Avg. Conversion Increase</p>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">47+</div>
+          <p>Conversion Factors</p>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">95%</div>
+          <p>Mobile Score Target</p>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">5.8x</div>
+          <p>Avg. ROI</p>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">72h</div>
+          <p>Turnaround Time</p>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">22%</div>
+          <p>Avg. Bounce Rate Reduction</p>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">142%</div>
+          <p>Avg. Conversion Lift</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">FAQ</h2>
+      
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            How many pages do you audit?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Our standard audit covers your primary conversion page (homepage, product page, or lead capture page). We offer multi-page audits for complex funnels at discounted rates.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            What tools do you use?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We use a combination of industry-leading tools:
+              <ul>
+                <li>Heatmap & session recording: Hotjar, Crazy Egg</li>
+                <li>Technical analysis: Google Lighthouse, GTmetrix</li>
+                <li>Conversion rate optimization: Google Optimize, Optimizely</li>
+                <li>SEO analysis: Ahrefs, SEMrush</li>
+                <li>UX evaluation: proprietary frameworks</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            Do you implement the changes?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We provide detailed implementation guidelines and can either:
+              <ul>
+                <li>Provide your team with step-by-step instructions</li>
+                <li>Implement changes directly (additional service)</li>
+                <li>Provide developer-ready code snippets</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            How quickly will I see results?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Most clients see measurable improvements within 7-14 days of implementing our recommendations. Full impact typically materializes within 30-60 days as you gather sufficient conversion data.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>Ready to Boost Your Conversions?</h2>
+      <p>Get a free mini-audit of your landing page today</p>
+      <a href="mailto:conversion@emailedge.agency" class="btn">
+        <i class="fas fa-search"></i> Request Free Audit
+      </a>
+    </section>
+  </main>
+
+  <footer style="background: var(--dark); padding: 3rem 0; text-align: center; margin-top: 4rem;">
+    <div class="container">
+      <h3>EmailEdge Agency</h3>
+      <p>Data-driven conversion optimization for SaaS</p>
+      <p style="margin-top: 1.5rem; color: #777;">
+        © 2025 EmailEdge Agency · 
+        <a href="mailto:info@emailedge.agency">info@emailedge.agency</a> · 
+        <a href="index.html">Back to Home</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const isActive = question.classList.contains('active');
+        
+        // Close all open items
+        document.querySelectorAll('.faq-question').forEach(q => {
+          q.classList.remove('active');
+          q.nextElementSibling.style.maxHeight = null;
+        });
+        
+        // Open clicked item if it was closed
+        if (!isActive) {
+          question.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+    
+    // Initialize first FAQ as open
+    document.querySelector('.faq-question').click();
+  </script>
+</body>
+</html>
