@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Influencer Partnerships | EmailEdge Agency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #ff8c00;
+      --secondary: #ff4500;
+      --dark: #0a0a0a;
+      --darker: #050505;
+      --gray: #1a1a1a;
+      --light: #f0f0f0;
+      --lighter: #ffffff;
+      --transition: all 0.3s ease;
+      --shadow: 0 4px 20px rgba(0,0,0,0.25);
+      --radius: 12px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--darker);
+      color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    a:hover {
+      color: var(--lighter);
+      text-decoration: underline;
+    }
+    
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(255, 140, 0, 0.4);
+      text-decoration: none;
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 4rem 2rem 6rem;
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
+    
+    .header-content {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    /* Service Sections */
+    .service-hero {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      margin: 5rem 0;
+    }
+    
+    .service-content {
+      flex: 1;
+    }
+    
+    .service-visual {
+      flex: 1;
+      position: relative;
+    }
+    
+    .tier-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+    
+    .tier-card {
+      background: var(--gray);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid #333;
+    }
+    
+    .tier-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+    }
+    
+    .tier-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .process-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .step-card {
+      flex: 1;
+      min-width: 250px;
+      background: var(--gray);
+      border-radius: var(--radius);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .step-number {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 5rem;
+      font-weight: 800;
+      color: rgba(255, 140, 0, 0.1);
+      line-height: 1;
+    }
+    
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+    
+    .result-card {
+      background: rgba(255, 140, 0, 0.1);
+      border-left: 4px solid var(--primary);
+      padding: 1.5rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    
+    .case-study {
+      background: var(--gray);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      margin: 4rem 0;
+      border: 1px solid #333;
+    }
+    
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .metric-card {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(255, 140, 0, 0.1);
+      border-radius: var(--radius);
+    }
+    
+    .metric-value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Creator Grid */
+    .creator-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .creator-card {
+      background: var(--gray);
+      border-radius: var(--radius);
+      overflow: hidden;
+      text-align: center;
+      transition: var(--transition);
+    }
+    
+    .creator-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 140, 0, 0.2);
+    }
+    
+    .creator-avatar {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .creator-info {
+      padding: 1.5rem;
+    }
+    
+    .creator-stats {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      color: #aaa;
+    }
+    
+    /* FAQ Section */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      background: var(--gray);
+      border-radius: var(--radius);
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      padding: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .faq-answer p {
+      padding: 1.5rem 0;
+      margin: 0;
+      color: #aaa;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      padding: 4rem 2rem;
+      text-align: center;
+      border-radius: var(--radius);
+      color: white;
+      margin: 4rem 0;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .service-hero {
+        flex-direction: column;
+      }
+      
+      .tier-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      
+      .tier-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      header {
+        padding: 3rem 1.5rem 5rem;
+      }
+      
+      .metrics-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Influencer Partnerships</h1>
+      <p>Strategic collaborations with tech creators to amplify your brand</p>
+      <a href="#contact" class="btn">Get Influencer Strategy <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="service-overview">
+      <div class="service-hero">
+        <div class="service-content">
+          <h2>Amplify Your SaaS Brand with Creator Partnerships</h2>
+          <p>In the crowded tech landscape, authentic voices cut through the noise. We connect you with the right creators who can authentically showcase your product to their engaged audiences.</p>
+          
+          <div class="tier-grid">
+            <div class="tier-card">
+              <div class="tier-icon">
+                <i class="fas fa-microphone-alt"></i>
+              </div>
+              <h3>Tier 1: Thought Leaders</h3>
+              <p>Industry experts with 100K-1M followers who drive high-intent traffic</p>
+              <p class="metric-value">12-18%</p>
+              <p>Average conversion rate</p>
+            </div>
+            
+            <div class="tier-card">
+              <div class="tier-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3>Tier 2: Mid-tier Creators</h3>
+              <p>Specialized tech creators (10K-100K) with highly engaged audiences</p>
+              <p class="metric-value">5-8%</p>
+              <p>Engagement rate</p>
+            </div>
+            
+            <div class="tier-card">
+              <div class="tier-icon">
+                <i class="fas fa-bullhorn"></i>
+              </div>
+              <h3>Nano-influencers</h3>
+              <p>Industry practitioners (1K-10K) with authentic, high-trust audiences</p>
+              <p class="metric-value">82%</p>
+              <p>Higher authenticity perception</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="service-visual">
+          <div style="background: var(--gray); border-radius: var(--radius); padding: 2rem; text-align: center;">
+            <div style="font-size: 5rem; color: var(--primary); margin-bottom: 1rem;">
+              <i class="fas fa-chart-network"></i>
+            </div>
+            <h3>Our Creator Network</h3>
+            <div style="margin-top: 1.5rem; text-align: left;">
+              <p><i class="fas fa-check" style="color: var(--primary);"></i> 500+ vetted tech creators</p>
+              <p><i class="fas fa-check" style="color: var(--primary);"></i> 87% audience authenticity score</p>
+              <p><i class="fas fa-check" style="color: var(--primary);"></i> Dedicated relationship managers</p>
+              <p><i class="fas fa-check" style="color: var(--primary);"></i> Performance-based pricing options</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="our-process">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">Our Partnership Process</h2>
+      
+      <div class="process-steps">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Strategy & Matching</h3>
+          <p>We analyze your target audience and match you with creators whose followers align with your ideal customer profile.</p>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>Audience demographic analysis</li>
+            <li>Creator vetting & selection</li>
+            <li>Campaign goal alignment</li>
+          </ul>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Campaign Design</h3>
+          <p>We co-create campaign concepts that feel authentic to the creator's style while achieving your business objectives.</p>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>Content concept development</li>
+            <li>Creative brief creation</li>
+            <li>Compensation structuring</li>
+          </ul>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Execution & Management</h3>
+          <p>We handle all creator communications, content approvals, and campaign coordination.</p>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>Contract negotiation</li>
+            <li>Content review & feedback</li>
+            <li>Timeline management</li>
+          </ul>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Performance & Optimization</h3>
+          <p>We track campaign results and optimize future collaborations based on performance data.</p>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>ROI tracking</li>
+            <li>Audience sentiment analysis</li>
+            <li>Performance reporting</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="results">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">Proven Results</h2>
+      
+      <div class="results-grid">
+        <div class="result-card">
+          <h3>For CRM Platform</h3>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>$320K in attributed revenue</li>
+            <li>27% lower CAC than paid ads</li>
+            <li>12 long-term creator ambassadors</li>
+          </ul>
+        </div>
+        
+        <div class="result-card">
+          <h3>For Cybersecurity SaaS</h3>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>1.4M impressions in 30 days</li>
+            <li>2,300+ free trial signups</li>
+            <li>38% engagement rate</li>
+          </ul>
+        </div>
+        
+        <div class="result-card">
+          <h3>For Project Management Tool</h3>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>Viral TikTok campaign (4.2M views)</li>
+            <li>12,000+ website visits</li>
+            <li>9.7% conversion to paid plans</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="case-study">
+        <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Case Study: Marketing Automation Platform</h3>
+        <p>We executed a 90-day creator campaign targeting marketing managers at mid-sized companies:</p>
+        
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-value">47</div>
+            <p>Creators Activated</p>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">$580K</div>
+            <p>Attributed Revenue</p>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">38%</div>
+            <p>Lower CAC</p>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">9.2%</div>
+            <p>Engagement Rate</p>
+          </div>
+        </div>
+        
+        <p>"The creator partnerships drove our highest quality leads all quarter. EmailEdge managed the entire process, allowing our team to focus on product development while they handled growth."</p>
+        <p style="margin-top: 1rem; font-weight: 600;">- Sarah Johnson, CMO at GrowthStack</p>
+      </div>
+    </section>
+
+    <section id="creators">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">Featured Creators in Our Network</h2>
+      
+      <div class="creator-grid">
+        <div class="creator-card">
+          <div class="creator-avatar" style="background-image: url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800&q=80')"></div>
+          <div class="creator-info">
+            <h3>Alex Morgan</h3>
+            <p>Marketing Tech Specialist</p>
+            <div class="creator-stats">
+              <div>
+                <div>240K</div>
+                <div>Followers</div>
+              </div>
+              <div>
+                <div>8.4%</div>
+                <div>Engagement</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="creator-card">
+          <div class="creator-avatar" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800&q=80')"></div>
+          <div class="creator-info">
+            <h3>Jessica Lee</h3>
+            <p>SaaS Product Reviews</p>
+            <div class="creator-stats">
+              <div>
+                <div>180K</div>
+                <div>Followers</div>
+              </div>
+              <div>
+                <div>12.1%</div>
+                <div>Engagement</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="creator-card">
+          <div class="creator-avatar" style="background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800&q=80')"></div>
+          <div class="creator-info">
+            <h3>Marcus Chen</h3>
+            <p>Startup Growth Hacks</p>
+            <div class="creator-stats">
+              <div>
+                <div>350K</div>
+                <div>Followers</div>
+              </div>
+              <div>
+                <div>7.8%</div>
+                <div>Engagement</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="creator-card">
+          <div class="creator-avatar" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800&q=80')"></div>
+          <div class="creator-info">
+            <h3>Sophia Rodriguez</h3>
+            <p>B2B Tech Educator</p>
+            <div class="creator-stats">
+              <div>
+                <div>420K</div>
+                <div>Followers</div>
+              </div>
+              <div>
+                <div>9.3%</div>
+                <div>Engagement</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">FAQ</h2>
+      
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            How do you select the right creators?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We use a proprietary scoring system that evaluates:
+              <ul>
+                <li>Audience demographics match</li>
+                <li>Engagement quality (not just quantity)</li>
+                <li>Content relevance to your industry</li>
+                <li>Historical campaign performance</li>
+                <li>Audience authenticity metrics</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            What's the typical campaign duration?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Most effective campaigns run 60-90 days to allow for content creation, distribution, and performance analysis. We recommend starting with a 3-month pilot program.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            How do you measure ROI?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We track:
+              <ul>
+                <li>Attributed revenue using custom tracking links</li>
+                <li>Engagement rates and audience sentiment</li>
+                <li>Cost Per Acquisition (CPA)</li>
+                <li>Brand lift through pre/post-campaign surveys</li>
+                <li>Long-term customer value from creator-referred users</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            Do you offer performance-based pricing?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, we have hybrid models that combine management fees with performance bonuses based on achieved results.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>Ready to Launch Your Influencer Campaign?</h2>
+      <p>Get a free audit of your influencer marketing potential</p>
+      <a href="mailto:influencers@emailedge.agency" class="btn">
+        <i class="fas fa-users"></i> Connect With Creators
+      </a>
+    </section>
+  </main>
+
+  <footer style="background: var(--dark); padding: 3rem 0; text-align: center; margin-top: 4rem;">
+    <div class="container">
+      <h3>EmailEdge Agency</h3>
+      <p>Strategic influencer partnerships for SaaS growth</p>
+      <p style="margin-top: 1.5rem; color: #777;">
+        © 2025 EmailEdge Agency · 
+        <a href="mailto:info@emailedge.agency">info@emailedge.agency</a> · 
+        <a href="index.html">Back to Home</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const isActive = question.classList.contains('active');
+        
+        // Close all open items
+        document.querySelectorAll('.faq-question').forEach(q => {
+          q.classList.remove('active');
+          q.nextElementSibling.style.maxHeight = null;
+        });
+        
+        // Open clicked item if it was closed
+        if (!isActive) {
+          question.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+    
+    // Initialize first FAQ as open
+    document.querySelector('.faq-question').click();
+  </script>
+</body>
+</html>
