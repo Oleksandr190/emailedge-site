@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affiliate Systems | EmailEdge Agency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #ff8c00;
+      --secondary: #ff4500;
+      --dark: #0a0a0a;
+      --darker: #050505;
+      --gray: #1a1a1a;
+      --light: #f0f0f0;
+      --lighter: #ffffff;
+      --transition: all 0.3s ease;
+      --shadow: 0 4px 20px rgba(0,0,0,0.25);
+      --radius: 12px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--darker);
+      color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    a:hover {
+      color: var(--lighter);
+      text-decoration: underline;
+    }
+    
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(255, 140, 0, 0.4);
+      text-decoration: none;
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 4rem 2rem 6rem;
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
+    
+    .header-content {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    /* Service Sections */
+    .service-hero {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      margin: 5rem 0;
+    }
+    
+    .service-content {
+      flex: 1;
+    }
+    
+    .service-visual {
+      flex: 1;
+      position: relative;
+    }
+    
+    .model-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+    
+    .model-card {
+      background: var(--gray);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid #333;
+    }
+    
+    .model-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+    }
+    
+    .model-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .process-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .step-card {
+      flex: 1;
+      min-width: 250px;
+      background: var(--gray);
+      border-radius: var(--radius);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .step-number {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 5rem;
+      font-weight: 800;
+      color: rgba(255, 140, 0, 0.1);
+      line-height: 1;
+    }
+    
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+    
+    .result-card {
+      background: rgba(255, 140, 0, 0.1);
+      border-left: 4px solid var(--primary);
+      padding: 1.5rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    
+    .platform-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+    
+    .feature-card {
+      background: var(--gray);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+    
+    .feature-icon {
+      font-size: 1.8rem;
+      color: var(--primary);
+      min-width: 40px;
+    }
+    
+    .case-study {
+      background: linear-gradient(135deg, rgba(255, 140, 0, 0.1), rgba(255, 69, 0, 0.1));
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      margin: 4rem 0;
+      border: 1px solid rgba(255, 140, 0, 0.3);
+    }
+    
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .metric-card {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(255, 140, 0, 0.15);
+      border-radius: var(--radius);
+    }
+    
+    .metric-value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    /* FAQ Section */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      background: var(--gray);
+      border-radius: var(--radius);
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      padding: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .faq-answer p {
+      padding: 1.5rem 0;
+      margin: 0;
+      color: #aaa;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      padding: 4rem 2rem;
+      text-align: center;
+      border-radius: var(--radius);
+      color: white;
+      margin: 4rem 0;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .service-hero {
+        flex-direction: column;
+      }
+      
+      .model-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .platform-features {
+        grid-template-columns: 1fr;
+      }
+      
+      .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      
+      .model-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      header {
+        padding: 3rem 1.5rem 5rem;
+      }
+      
+      .metrics-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Affiliate Systems</h1>
+      <p>Design, launch, and scale your own branded partner ecosystem</p>
+      <a href="#contact" class="btn">Get Partner Strategy <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="service-overview">
+      <div class="service-hero">
+        <div class="service-content">
+          <h2>Turn Your Customers into Your Best Sales Team</h2>
+          <p>We design and implement high-converting affiliate programs that drive sustainable growth for SaaS companies. Our systems have generated over $3.2M in revenue for clients.</p>
+          
+          <div class="model-grid">
+            <div class="model-card">
+              <div class="model-icon">
+                <i class="fas fa-user-friends"></i>
+              </div>
+              <h3>Influencer Program</h3>
+              <p>Partner with content creators who promote your product to their audience</p>
+              <p class="metric-value">12-25%</p>
+              <p>Commission Rate</p>
+            </div>
+            
+            <div class="model-card">
+              <div class="model-icon">
+                <i class="fas fa-briefcase"></i>
+              </div>
+              <h3>Reseller Network</h3>
+              <p>Agency and consultant partners who implement your solution for clients</p>
+              <p class="metric-value">20-40%</p>
+              <p>Commission Rate</p>
+            </div>
+            
+            <div class="model-card">
+              <div class="model-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3>Customer Referral</h3>
+              <p>Turn satisfied customers into advocates with incentivized sharing</p>
+              <p class="metric-value">$100-500</p>
+              <p>Per Referral</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="service-visual">
+          <div style="background: var(--gray); border-radius: var(--radius); padding: 2rem; text-align: center;">
+            <div style="font-size: 5rem; color: var(--primary); margin-bottom: 1rem;">
+              <i class="fas fa-chart-network"></i>
+            </div>
+            <h3>Program Benefits</h3>
+            <div style="margin-top: 1.5rem; text-align: left;">
+              <p><i class="fas fa-check" style="color: var(--primary);"></i> 30-50% lower CAC than paid ads</p>
+              <p><i class="fas fa-check" style="color: var(--primary);"></i> Higher customer lifetime value</p>
+              <p><i class="fas fa-check" style="color: var(--primary);"></i> Scalable revenue generation</p>
+              <p><i class="fas fa-check" style="color: var(--primary);"></i> Built-in social proof</p>
+              <p><i class="fas fa-check" style="color: var(--primary);"></i> Predictable ROI tracking</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="our-process">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">Our 4-Step Implementation Process</h2>
+      
+      <div class="process-steps">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Program Strategy</h3>
+          <p>Define commission structure, partner tiers, and program goals aligned with your business model.</p>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>Commission model design</li>
+            <li>Partner persona development</li>
+            <li>Goal setting & KPIs</li>
+          </ul>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Technology Setup</h3>
+          <p>Implement tracking, automation, and partner management systems.</p>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>Tracking implementation</li>
+            <li>Affiliate platform setup</li>
+            <li>Automation workflows</li>
+          </ul>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Partner Recruitment</h3>
+          <p>Onboard and activate high-value partners through targeted outreach.</p>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>Partner acquisition strategy</li>
+            <li>Onboarding sequence</li>
+            <li>Resource development</li>
+          </ul>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Optimization & Scaling</h3>
+          <p>Continuously improve performance and expand your partner ecosystem.</p>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>Performance analysis</li>
+            <li>Partner engagement</li>
+            <li>Program expansion</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="platform">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">Our Technology Platform</h2>
+      
+      <div class="platform-features">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-link"></i>
+          </div>
+          <div>
+            <h3>Smart Tracking Links</h3>
+            <p>Unique tracking for each partner with cookie duration customization and cross-device tracking.</p>
+          </div>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-pie"></i>
+          </div>
+          <div>
+            <h3>Real-Time Dashboards</h3>
+            <p>Monitor clicks, conversions, and commissions in real-time with customizable reporting.</p>
+          </div>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-cog"></i>
+          </div>
+          <div>
+            <h3>Automated Commissions</h3>
+            <p>Set custom commission rules with multi-tier payouts and automated payment processing.</p>
+          </div>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-box-open"></i>
+          </div>
+          <div>
+            <h3>Resource Portal</h3>
+            <p>Customizable partner portal with marketing materials, links, and performance data.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="results">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">Client Success Stories</h2>
+      
+      <div class="results-grid">
+        <div class="result-card">
+          <h3>For Project Management SaaS</h3>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>$1.2M in attributed revenue</li>
+            <li>287 active partners</li>
+            <li>32% of new customers</li>
+          </ul>
+        </div>
+        
+        <div class="result-card">
+          <h3>For E-commerce Platform</h3>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>63% lower CAC than paid ads</li>
+            <li>412 agency partners</li>
+            <li>22% higher LTV</li>
+          </ul>
+        </div>
+        
+        <div class="result-card">
+          <h3>For Marketing Automation Tool</h3>
+          <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>$840K in annual recurring revenue</li>
+            <li>153 influencer partners</li>
+            <li>18% conversion rate</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="case-study">
+        <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Case Study: CRM Platform</h3>
+        <p>We built a comprehensive affiliate program targeting marketing consultants and agencies:</p>
+        
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-value">$3.2M</div>
+            <p>Attributed Revenue</p>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">42%</div>
+            <p>Of New Business</p>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">572</div>
+            <p>Active Partners</p>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">5.8x</div>
+            <p>ROI</p>
+          </div>
+        </div>
+        
+        <p>"The affiliate program became our top-performing channel within 9 months. EmailEdge not only set up the technology but also recruited and managed our partner ecosystem."</p>
+        <p style="margin-top: 1rem; font-weight: 600;">- Michael Reynolds, CEO at SalesFlow</p>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">FAQ</h2>
+      
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            How much does it cost to set up an affiliate program?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Our implementation packages start at $7,500 and include:
+              <ul>
+                <li>Program strategy development</li>
+                <li>Technology setup and integration</li>
+                <li>Initial partner recruitment (up to 50 partners)</li>
+                <li>Training and resource development</li>
+              </ul>
+              Ongoing management starts at $1,500/month.
+            </p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            How long does it take to launch?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Most programs launch in 4-6 weeks:
+              <ul>
+                <li>Weeks 1-2: Strategy & setup</li>
+                <li>Weeks 3-4: Technology implementation</li>
+                <li>Weeks 5-6: Initial partner onboarding</li>
+              </ul>
+              First results typically appear within 60-90 days.
+            </p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            What commission structure works best?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We recommend:
+              <ul>
+                <li><strong>Recurring commissions</strong> for SaaS (20-30% of first payment, 10-20% recurring)</li>
+                <li><strong>Tiered commissions</strong> based on performance volume</li>
+                <li><strong>Hybrid models</strong> combining flat fees with percentage commissions</li>
+              </ul>
+              We'll help you design the optimal model for your business.
+            </p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            How do you find quality partners?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We use multiple acquisition channels:
+              <ul>
+                <li>Existing customer database mining</li>
+                <li>Targeted outreach to industry influencers</li>
+                <li>Partnerships with complementary service providers</li>
+                <li>Affiliate directories and marketplaces</li>
+                <li>Referral programs for current partners</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>Ready to Build Your Revenue-Generating Partner Network?</h2>
+      <p>Get a free affiliate program assessment and strategy session</p>
+      <a href="mailto:affiliates@emailedge.agency" class="btn">
+        <i class="fas fa-network-wired"></i> Launch Your Program
+      </a>
+    </section>
+  </main>
+
+  <footer style="background: var(--dark); padding: 3rem 0; text-align: center; margin-top: 4rem;">
+    <div class="container">
+      <h3>EmailEdge Agency</h3>
+      <p>Building high-performing partner ecosystems for SaaS companies</p>
+      <p style="margin-top: 1.5rem; color: #777;">
+        © 2025 EmailEdge Agency · 
+        <a href="mailto:info@emailedge.agency">info@emailedge.agency</a> · 
+        <a href="index.html">Back to Home</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const isActive = question.classList.contains('active');
+        
+        // Close all open items
+        document.querySelectorAll('.faq-question').forEach(q => {
+          q.classList.remove('active');
+          q.nextElementSibling.style.maxHeight = null;
+        });
+        
+        // Open clicked item if it was closed
+        if (!isActive) {
+          question.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+    
+    // Initialize first FAQ as open
+    document.querySelector('.faq-question').click();
+  </script>
+</body>
+</html>
